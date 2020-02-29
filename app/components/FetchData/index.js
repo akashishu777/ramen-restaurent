@@ -29,12 +29,14 @@ const filerlist = (e) => {
   // now we need to dispatch action which can update the state and return a new array of list
 }
 
+// function for separting year and rank from string
 function rank(str) {
   str = str.replace("#", "");
   var res = str.split(" ");
-  return str[1];
+  return str;
 }
 
+// Fucntion which returns unique country
 const getUniqueCountry = (data) => {
   if (data == null){ return [];}
   var country = [''];

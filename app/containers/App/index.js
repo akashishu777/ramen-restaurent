@@ -17,7 +17,6 @@ class App extends Component {
 
 	render() {
 		const { data, error, ...actions } = this.props;
-		console.log(data);
 		return(
 			<div>
 				<FetchData data={data} error={error}/>
