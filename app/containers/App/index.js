@@ -1,0 +1,42 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import './styles.styl';
+import * as actions from '../../actions';
+import FetchData from '../../components/FetchData'
+
+class App extends Component {
+	constructor(props) {
+	  super(props)
+	}
+
+	componentDidMount() {
+		// dispatching an action so that we can update the store with the restaurent data
+		this.props.fetchData();
+	}
+
+	render() {
+		const { data, error, ...actions } = this.props;
+		console.log(data);
+		return(
+			<div>
+				<FetchData data={data} error={error}/>
+			</div>
+		)
+	}
+}
+
+function mapStateToProps(state, ownProps) {
+	return {
+		data: state.default.data,
+		error: state.default.error,
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		fetchData: () => { dispatch(actions.fetchData()); }
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
