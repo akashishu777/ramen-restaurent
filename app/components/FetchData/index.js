@@ -9,7 +9,7 @@ const FetchData = ({ data, error }) => {
           Ramen restaurent
         </h4>
 
-        <label for="cars">Filter By Year: </label>
+        <label for="cars">Filter By Country: </label>
 
         <select id="cars" onChange={filerlist}>
             {uniqueCountry.map(el => <option value={el}>{el}</option>)}
